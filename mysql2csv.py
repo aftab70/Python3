@@ -3,10 +3,11 @@
 import pymysql
 import sys
 import csv
+import os
 
-db = pymysql.connect("localhost","user","password","Database_name" )
+db = pymysql.connect("localhost","admin","123456","aftab" )
 cur = db.cursor()
-sql = 'select * from table_name;'
+sql = 'select * from EMPLOYEE;'
 cur.execute(sql)
 
 rows = cur.fetchall()
@@ -15,9 +16,8 @@ myFile = csv.writer(fp)
 myFile.writerows(rows)
 fp.close()
 db.close()
+os.system("""curl 'http://localhost:8983/solr/user_core/update/csv?commit=true' --data-binary @/tmp/file.csv -H 'Content-type:text/plain; charset=utf-8'""")
 
-import os
-cmd = "'curl 'http://localhost:8983/solr/user_core/update/csv?commit=true' --data-binary @file.csv -H 'Content-type:text/plain; charset=utf-8'"
-os.system(cmd)
+
 
 
