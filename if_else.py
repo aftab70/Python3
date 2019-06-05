@@ -55,3 +55,25 @@ except:
         print("Its seems like you are not enter number")
 
 ##########################################################################################################################################
+
+#!/usr/bin/python3
+
+import threading
+
+class Messenger(threading.Thread):
+        def run(self):
+          for i in range(10):
+            print(threading.currentThread().getName())
+x = Messenger(name="Sending Messeges")
+y = Messenger(name="Recived Messsages")
+x.start()
+y.start()
+
+#########################################################################################################################################
+
+
+
+
+
+
+
