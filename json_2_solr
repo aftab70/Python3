@@ -1,0 +1,1 @@
+curl -u admin:PASSWORD 'http://localhost:8983/solr/user_core/update?commit=true' --data-binary @/tmp/user_post.json -H 'Content-type:application/json'
