@@ -1,0 +1,7 @@
+#!/bin/bash
+
+sudo apt install python3-pip -y
+pip3 install emails
+pip3 install config_with_yaml
+pip3 install elasticsearch
+pip3 install schedule
